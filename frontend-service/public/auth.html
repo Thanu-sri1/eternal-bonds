@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternal Bonds Matrimony - Gateway</title>
+  <!-- Google Font & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div class="bg-decor-circle bg-circle-1"></div>
+  <div class="bg-decor-circle bg-circle-2"></div>
+
+  <div class="auth-wrapper">
+    <div class="auth-container">
+      
+      <!-- Side panel -->
+      <div class="auth-sidebar">
+        <div class="auth-sidebar-logo">
+          <i class="fa-solid fa-hands-holding-heart"></i> EternalBonds
+        </div>
+        <div class="auth-sidebar-content">
+          <h2>Find Your Perfect Life Partner</h2>
+          <p>Connecting hearts and souls with trust, compatibility, and tradition. Join thousands who found their happily ever after here.</p>
+        </div>
+        <div class="auth-sidebar-footer">
+          &copy; 2026 Eternal Bonds Matrimony. All rights reserved.
+        </div>
+      </div>
+
+      <!-- Forms Container -->
+      <div class="auth-form-container">
+        
+        <!-- Login Form -->
+        <div id="login-form-view">
+          <h3>Welcome Back</h3>
+          <p class="subtitle">Please enter your credentials to access your matrimony portal.</p>
+          
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              Sign In <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
+          </form>
+          
+          <div class="form-switch">
+            Don't have an account? <a href="#" id="switch-to-register">Register here</a>
+          </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form-view" style="display: none;">
+          <h3>Create Profile</h3>
+          <p class="subtitle">Enter your details to register and start searching for matches.</p>
+          
+          <form id="register-form" style="max-height: 480px; overflow-y: auto; padding-right: 10px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-name">Full Name</label>
+                <input type="text" id="reg-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-email">Email Address</label>
+                <input type="email" id="reg-email" class="form-control" placeholder="e.g. rahul@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" class="form-control" placeholder="Min 6 characters" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-gender">Gender</label>
+                <select id="reg-gender" class="form-control" required>
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-dob">Date of Birth</label>
+                <input type="date" id="reg-dob" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-age">Age</label>
+                <input type="number" id="reg-age" class="form-control" placeholder="e.g. 26" min="18" max="70" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-religion">Religion</label>
+                <select id="reg-religion" class="form-control" required>
+                  <option value="" disabled selected>Select Religion</option>
+                  <option value="Hindu">Hindu</option>
+                  <option value="Muslim">Muslim</option>
+                  <option value="Sikh">Sikh</option>
+                  <option value="Christian">Christian</option>
+                  <option value="Jain">Jain</option>
+                  <option value="Buddhist">Buddhist</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="reg-mothertongue">Mother Tongue</label>
+                <input type="text" id="reg-mothertongue" class="form-control" placeholder="e.g. Hindi, Punjabi" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-location">City / Location</label>
+                <input type="text" id="reg-location" class="form-control" placeholder="e.g. Delhi, Mumbai" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-profession">Profession</label>
+                <input type="text" id="reg-profession" class="form-control" placeholder="e.g. Software Engineer" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-height">Height</label>
+                <input type="text" id="reg-height" class="form-control" placeholder="e.g. 5'8\"" defaultValue="5'5\"">
+              </div>
+              <div class="form-group">
+                <label for="reg-education">Education Level</label>
+                <input type="text" id="reg-education" class="form-control" placeholder="e.g. B.Tech, MBA" defaultValue="Graduate">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-photo">Photo URL (Optional)</label>
+              <input type="url" id="reg-photo" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+            </div>
+
+            <div class="form-group">
+              <label for="reg-bio">Write a short bio about yourself</label>
+              <textarea id="reg-bio" class="form-control" placeholder="Tell potential matches about your values, interests, and partner preference..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              Register Profile <i class="fa-solid fa-user-plus"></i>
+            </button>
+          </form>
+          
+          <div class="form-switch">
+            Already have an account? <a href="#" id="switch-to-login">Sign in here</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- API connection & script logic -->
+  <script src="js/api.js"></script>
+  <script>
+    // Front-end routing toggles between login and registration
+    const loginView = document.getElementById('login-form-view');
+    const registerView = document.getElementById('register-form-view');
+    const switchToRegister = document.getElementById('switch-to-register');
+    const switchToLogin = document.getElementById('switch-to-login');
+
+    switchToRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginView.style.display = 'none';
+      registerView.style.display = 'block';
+    });
+
+    switchToLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      registerView.style.display = 'none';
+      loginView.style.display = 'block';
+    });
+
+    // Handle Forms Submissions
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      try {
+        const config = await getAppConfig();
+        const response = await fetch(`${config.userServiceUrl}/api/users/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          showToast(data.error || 'Login failed', 'error');
+          return;
+        }
+
+        // Store mock session token and user info
+        localStorage.setItem('matrimony_token', data.token);
+        localStorage.setItem('matrimony_user', JSON.stringify(data.user));
+
+        showToast('Login successful! Redirecting...', 'success');
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      } catch (err) {
+        console.error(err);
+        showToast('Error connecting to User Service.', 'error');
+      }
+    });
+
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const gender = document.getElementById('reg-gender').value;
+      const age = document.getElementById('reg-age').value;
+      const dob = document.getElementById('reg-dob').value;
+      const religion = document.getElementById('reg-religion').value;
+      const motherTongue = document.getElementById('reg-mothertongue').value;
+      const location = document.getElementById('reg-location').value;
+      const profession = document.getElementById('reg-profession').value;
+      const height = document.getElementById('reg-height').value;
+      const education = document.getElementById('reg-education').value;
+      const photoUrl = document.getElementById('reg-photo').value;
+      const bio = document.getElementById('reg-bio').value;
+
+      try {
+        const config = await getAppConfig();
+        const response = await fetch(`${config.userServiceUrl}/api/users/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name, email, password, gender, age, dob, religion, motherTongue, location, profession, height, education, photoUrl, bio
+          })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          showToast(data.error || 'Registration failed', 'error');
+          return;
+        }
+
+        showToast('Account registered successfully! Please log in.', 'success');
+        setTimeout(() => {
+          registerView.style.display = 'none';
+          loginView.style.display = 'block';
+          document.getElementById('login-email').value = email;
+          document.getElementById('login-password').value = '';
+        }, 1500);
+      } catch (err) {
+        console.error(err);
+        showToast('Error connecting to User Service.', 'error');
+      }
+    });
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'}" style="color: ${type === 'success' ? '#28a745' : '#dc3545'}"></i>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

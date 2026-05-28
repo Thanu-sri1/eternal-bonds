@@ -1,0 +1,16 @@
+{
+  "name": "matrimony-microservices-root",
+  "version": "1.0.0",
+  "description": "Root runner for Matrimony Microservices Application",
+  "scripts": {
+    "install:all": "npm install && cd frontend-service && npm install && cd ../user-service && npm install && cd ../match-service && npm install && cd ../connection-service && npm install",
+    "start:frontend": "cd frontend-service && npm start",
+    "start:user": "cd user-service && npm start",
+    "start:match": "cd match-service && npm start",
+    "start:connection": "cd connection-service && npm start",
+    "dev": "concurrently --kill-others \"npm run start:frontend\" \"npm run start:user\" \"npm run start:match\" \"npm run start:connection\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternal Bonds Matrimony - Dashboard</title>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Decorative blur filters -->
+  <div class="bg-decor-circle bg-circle-1"></div>
+  <div class="bg-decor-circle bg-circle-2"></div>
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="logo">
+      <i class="fa-solid fa-hands-holding-heart"></i> EternalBonds
+    </div>
+    
+    <nav class="nav-tabs">
+      <button class="nav-tab-btn active" data-target="dashboard-section">
+        <i class="fa-solid fa-house"></i> Dashboard
+      </button>
+      <button class="nav-tab-btn" data-target="search-section" id="nav-search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Matches
+      </button>
+      <button class="nav-tab-btn" data-target="connections-section" id="nav-connections-btn">
+        <i class="fa-solid fa-heart-circle-check"></i> Connections
+        <span class="conn-count-badge" id="header-pending-count" style="display: none;">0</span>
+      </button>
+      <button class="nav-tab-btn" data-target="profile-section">
+        <i class="fa-solid fa-user-gear"></i> My Profile
+      </button>
+    </nav>
+
+    <div class="header-user-info">
+      <img id="header-user-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" class="header-avatar" alt="User Profile">
+      <div>
+        <div class="header-username" id="header-user-name">Loading...</div>
+        <a href="#" id="sign-out-btn" style="font-size: 0.8rem; color: var(--primary-light); font-weight: 600;">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Shell -->
+  <main class="app-main">
+
+    <!-- DASHBOARD VIEW -->
+    <section id="dashboard-section" class="app-section active">
+      <div class="dashboard-hero">
+        <div class="hero-text">
+          <h2 id="welcome-message">Hello, User!</h2>
+          <p>We hope you find your ideal partner today. Check out profiles tailored to your interests.</p>
+        </div>
+      </div>
+
+      <h3 class="section-title">Partner Recommendations</h3>
+      <div class="profiles-grid" id="recommendations-container">
+        <!-- Injected via JavaScript -->
+        <div class="empty-state">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <p>Fetching recommendations...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH VIEW -->
+    <section id="search-section" class="app-section">
+      <div class="search-layout">
+        
+        <!-- Filter Side panel -->
+        <div class="search-filter-card">
+          <h3>Filter Search</h3>
+          
+          <div class="filter-group">
+            <label for="search-gender">I am looking for a</label>
+            <select id="search-gender" class="form-control">
+              <option value="Female">Bride (Female)</option>
+              <option value="Male">Groom (Male)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Age Range</label>
+            <div class="filter-range">
+              <input type="number" id="search-age-min" class="form-control" placeholder="Min" min="18" max="70" value="20">
+              <span>to</span>
+              <input type="number" id="search-age-max" class="form-control" placeholder="Max" min="18" max="70" value="35">
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="search-religion">Religion</label>
+            <select id="search-religion" class="form-control">
+              <option value="All">All Religions</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Sikh">Sikh</option>
+              <option value="Christian">Christian</option>
+              <option value="Jain">Jain</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="search-location">City / Location</label>
+            <input type="text" id="search-location" class="form-control" placeholder="e.g. Delhi, Mumbai">
+          </div>
+
+          <div class="filter-group">
+            <label for="search-profession">Profession</label>
+            <input type="text" id="search-profession" class="form-control" placeholder="e.g. Engineer, Business">
+          </div>
+
+          <button id="apply-filters-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+            Apply Filters <i class="fa-solid fa-filter"></i>
+          </button>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div>
+          <h3 class="section-title">Matches Matching Your Criteria</h3>
+          <div class="profiles-grid" id="search-results-container">
+            <!-- Injected via JavaScript -->
+            <div class="empty-state">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <p>Apply filters or search to discover profiles.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONNECTIONS VIEW -->
+    <section id="connections-section" class="app-section">
+      <div class="connections-tabs">
+        <button class="conn-tab-btn active" data-pane="received-pane">
+          Interested In Me <span class="conn-count-badge" id="received-count">0</span>
+        </button>
+        <button class="conn-tab-btn" data-pane="sent-pane">
+          Sent Requests <span class="conn-count-badge" id="sent-count">0</span>
+        </button>
+        <button class="conn-tab-btn" data-pane="accepted-pane">
+          Mutual Connections <span class="conn-count-badge" id="accepted-count">0</span>
+        </button>
+      </div>
+
+      <!-- Received Requests Pane -->
+      <div id="received-pane" class="connections-pane active">
+        <div class="connections-grid" id="received-connections-container">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Sent Requests Pane -->
+      <div id="sent-pane" class="connections-pane">
+        <div class="connections-grid" id="sent-connections-container">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Accepted/Connected Pane -->
+      <div id="accepted-pane" class="connections-pane">
+        <div class="connections-grid" id="accepted-connections-container">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- MY PROFILE VIEW -->
+    <section id="profile-section" class="app-section">
+      <div class="profile-edit-container">
+        
+        <div class="profile-edit-header">
+          <div class="profile-edit-avatar-container">
+            <img id="profile-edit-img" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop" class="profile-edit-avatar" alt="Avatar">
+          </div>
+          <div>
+            <h3 style="margin-bottom: 5px;" id="profile-edit-title">My Account Settings</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Keep your matrimonial preferences up to date to get relevant matches.</p>
+          </div>
+        </div>
+
+        <form id="profile-edit-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-name">Display Name</label>
+              <input type="text" id="edit-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-location">City / Location</label>
+              <input type="text" id="edit-location" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-religion">Religion</label>
+              <input type="text" id="edit-religion" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-mothertongue">Mother Tongue</label>
+              <input type="text" id="edit-mothertongue" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-profession">Profession</label>
+              <input type="text" id="edit-profession" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-education">Education</label>
+              <input type="text" id="edit-education" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-height">Height</label>
+              <input type="text" id="edit-height" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-photo">Photo URL</label>
+              <input type="url" id="edit-photo" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="edit-bio">Personal Biography</label>
+            <textarea id="edit-bio" class="form-control" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 15px;">
+            Save Preferences <i class="fa-solid fa-circle-check"></i>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- API connection & script logic -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
